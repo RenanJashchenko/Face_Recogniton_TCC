@@ -36,12 +36,12 @@ async function start() {
 }
 
 function loadLabeledImages() {
-  const labels = ['Renan Jashchenko','Boris Jashchenko']
+  const labels = ['Renan Jashchenko','Boris Jashchenko','Renata Jashchenko']
   return Promise.all(
     labels.map(async label => {
       const descriptions = []
       for (let i = 1; i <= 2; i++) {
-        const img = await faceapi.fetchImage(`https://raw.githubusercontent.com/RenanJashchenko/face_recognition_labels/master/labeled_images/${label}/${i}.jpg`)
+        const img = await faceapi.fetchImage(`https://raw.githubusercontent.com/RenanJashchenko/Face_Recogniton_TCC/master/labeled_images/${label}/${i}.jpg`)
         const detections = await faceapi.detectSingleFace(img).withFaceLandmarks().withFaceDescriptor()
         descriptions.push(detections.descriptor)
       }
